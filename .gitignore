@@ -1,0 +1,7 @@
+auto/
+*.aux
+*.fdb_*
+*.fls
+*.log
+*.synctex.gz
+*converted-to.pdf
