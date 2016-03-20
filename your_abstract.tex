@@ -74,15 +74,16 @@ possible values of the liquidation price is analyzed in [5]. Here these results
 are futher extended for the case of a countable state space.
 
 Formally the model is defined as follows. At stage 0 a chance move chooses a
-state of nature $s \in S$ according to the distribution $p$. At each
-stage $t = \overline{1,n}$ players make bids $i_t \in I, j_t \in J$ where $I = J
-= \mathbb{Z}_+$. A stage payoff in state $s$ equals to
+state of nature $s \in S$ according to the distribution $p$. At each stage $t =
+\overline{1,n}$ players make bids $i_t \in I, j_t \in J$ where $I = J =
+\mathbb{Z}_+$. Denoting $\overline{\beta} = 1-\beta$ a stage payoff in state $s$
+equals to
 \begin{equation*}
   a^s(i, j) =
   \begin{cases}
-    (1-\beta) i + \beta j - s, &\; i < j,\\
+    \overline{\beta} i + \beta j - s, &\; i < j,\\
     0, &\; i = j,\\
-    s - \beta i - (1-\beta) j, &\; i > j.
+    s - \beta i - \overline{\beta} j, &\; i > j.
   \end{cases}
 \end{equation*}
 
@@ -100,8 +101,9 @@ represented as a pair $(\sigma_1, \sigma(i))$ where $\sigma_1$ is a one stage
 action and $\sigma(i)$ is a strategy in $(n-1)$--stage game dependent on the
 actual first bid. Similarly Player 2's strategy $\tau$ can be represented as a
 pair $(\tau_1, \tau(i))$. Denoting $q = (q_0, q_1, \ldots)$ a marginal
-distribution of the first bid, and $p(i)$ -- a posterior distribution of the
-liquidation price given a bid $i$, the following recursive formula holds
+distribution of the first bid, and $p(i) = \{p(0 | i), p(1, i), \ldots\}$ -- a
+posterior distribution of the liquidation price given a bid $i$, the following
+recursive formula holds
 \begin{equation*}
   K_n(p, \sigma, \tau) = K_1(p, \sigma_1, \tau_1) +
   \sum_{i \in I} q_i K_{n-1}(p(i), \sigma(i), \tau(i)).
@@ -119,10 +121,31 @@ any posterior probability $p$. Let's define a pure strategy $\tau^k$ as
 \end{gather*}
 It can be shown that for $p$ such that $\mathbb{E} p = k - 1 + \beta + \xi, \;
 \xi \in [0, 1)$ Player 2 can guarantee a payoff not more than $H^\infty(p) =
-\mathbb{D} p + \beta(1-\beta) -\xi(1-\xi)$. Function $H^\infty(p)$ is piecewise
-linear with breakpoints at $p \in \Theta(k + \beta)$ where $\Theta(x) = \{p:
-\mathbb{E} p = x\}$ and domains of linearity $\Lambda(k - 1 + \beta, k + \beta)$ where
-$\Lambda(a, b) = \{p: a \leq \mathbb{E}p \leq b \}$.
+\mathbb{D} p + \beta\overline{\beta} -\xi(1-\xi)$. Function $H^\infty(p)$ is
+piecewise linear with breakpoints at $p \in \Theta(k + \beta)$ where $\Theta(x)
+= \{p: \mathbb{E} p = x\}$ and domains of linearity $\Lambda(k -
+\overline{\beta}, k + \beta)$ where $\Lambda(x, y) = \{p: x \leq \mathbb{E}p
+\leq y \}$.
+
+Given $\sigma_1 = \{q_1, p_1(i)\}$ and $\sigma_2 = \{q_2, p_2(i)\}$ are two
+first-stage actions and $p = \lambda p_1 + (1-\lambda)p_2$, it can be shown that
+a first-stage action $\sigma$ with $q_i = \lambda q_{1,i} + (1-\lambda) q_{2,i}$
+and $p(s|i) = (\lambda q_{1,i} p_1(s|i) + (1-\lambda) q_{2,i} p_2(s|i))/q_i$
+guarantees Player 1 a payoff of at least $L_n(p, \sigma) = \lambda L_{n-1}(p_1,
+\sigma_1) + (1-\lambda) L_{n-1}(p_2, \sigma_2)$. Since every $p$ can be
+represented as a convex combination of distributions taking only 2 different
+values it is suffice to show that $H^\infty(p^{k+\beta}(r, l)) =
+B_\infty(p^{k+\beta}(r, l))$ to prove that $H^\infty(p) = B_\infty(p)$ for all
+$p$.
+
+An optimal strategy for $p^x(0, m)$ is described in [5]. Adjusting it for
+$p^{k+\beta}(l, r)$ gives us $L_\infty(p^{k+\beta}(l, r)) = ((r - k - \beta)(k -
+l + \beta) + \beta(1-\beta))/2 = H_\infty(p^{k+\beta}(l, r))$. Thus the game
+$G_\infty(p)$ has a value $V_\infty(p) = H_\infty(p)$.
+
+It is important to note that Player 1's strategy described above is properly
+defined only for $\beta \in (0, 1)$. In case of $\beta \in \{0, 1\}$ one should
+use strategies described in [3].
 
 % Insert your figure, if needed.
 % \begin{figure}[!h]
