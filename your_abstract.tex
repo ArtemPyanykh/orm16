@@ -43,7 +43,7 @@ We consider a simplified model of a financial market with two players bidding
 for one unit of a risky asset for $n \leq \infty$ consecutive stages. Player 1
 (an insider) is informed about the liquidation price $s^0$ of the asset while
 Player 2 knows only its probability distribution $p$. At each stage players
-place integral bids. The higher bid wins and an asset is transacted to the
+place integral bids. The higher bid wins, and an asset is transacted to the
 winning player. Each player aims to maximize the value of her final portfolio.
 
 A model where the price $s^0$ has only two possible values $\{0, m\}$ is
@@ -64,7 +64,7 @@ In both [1] and [3] the transaction price equals to the highest bid. Instead we
 could consider a transaction rule proposed in [4], and define a transaction
 price equal to a convex combination of proposed bids with a coefficient $\beta
 \in [0, 1]$. A model with such transaction rule and two possible values of the
-liquidation price is studied in [5]. Here those results are futher extended for
+liquidation price is studied in [5]. Here those results are further extended for
 the case of a countable state space.
 
 The model is defined as follows. At stage 0 a chance move chooses a state of
@@ -121,18 +121,17 @@ a convex combination of some $p^x(l,r)$, proving that $H_\infty(p) =
 L_\infty(p)$ requires an explicit proof only for $p = p^{k+\beta}(l, r)$.
 
 Let's denote $q = (q_i, i \in I)$ a marginal distribution of Player 1's first
-bid, and $p^i = (p^{s|i}, s \in S)$ a posterior distribution over the
-liquidation price given a bid $i$ was made. Let's also denote $\sigma^s_i$ a
-component of Player 1's stage action, i.e. a probability of making a bid $i$ in
-state $s$. Then from the Bayes rule $\sigma^s_i = p^{s|i} q_i / p_s$. Thus, in
-order to define a stage action it is suffice to specify $q$ and $(p^i, i \in
-I)$.
+bid and $p^i = (p^{s|i}, s \in S)$ a posterior distribution over the liquidation
+price given a bid $i$ was made. Let's also denote $\sigma^s_i$ a component of
+Player 1's stage action, i.e. a probability of making a bid $i$ in state $s$.
+Then from the Bayes rule $\sigma^s_i = p^{s|i} q_i / p_s$. Thus in order to
+define a stage action, it is suffice to specify $q$ and $(p^i, i \in I)$.
 
 An optimal strategy for $p^x(0, m)$ as described in [5] can be adjusted to
 $p^{k+\beta}(l, r)$ in the following way. For $p = p^l(l, r)$ and $p = p^r(l,r)$
-Player 1 uses bids $l$ and $r$ with probability 1 at the first stage of the
-game. For $p \in \left\{ p^k(l, r), p^{k+\beta}(l,r) \right\}$ she uses a stage
-action with parameters
+Player 1 uses bids $l$ and $r$ respectively with probability 1 at the first
+stage of the game. For $p \in \left\{ p^k(l, r), p^{k+\beta}(l,r) \right\}$ she
+uses a stage action with parameters
 \begin{align*}
   &p^k(l,r):
     q_k = \beta,
@@ -155,53 +154,12 @@ This coincides with the value of $H_\infty\left(p^{k+\beta}(l, r)\right)$. Thus
 the game $G_\infty(p)$ has a value $V_\infty(p) = H_\infty(p)$, and strategies
 described above are optimal.
 
-%  For $p \in \left\{ p^k(l, r),
-%   p^{k+\beta}(l, r) \right\}$ Player 1 uses a stage action with parameters:
-% \begin{gather*}
-%   p^{k+\beta}(l, r):
-%   q_k = 1-\beta, q_{k+1} = \beta, p^k = p^k(l,r), p^{k+1} = p^{k+1}(l,r),\\
-%   p^k(l,r):
-%   q_k = \beta, q_{k+1} = 1-\beta, p^k = p^{k-1+\beta}(l,r), p^{k+1} = p^{k+\beta}(l,r),\\
-%   p^l(l,r): q_l = 1, p^r(l,r): q_r = 1.
-% \end{gather*}
-% Applied recursively for respective posterior probabilities at further stages
-% this strategy guarantees Player 1 a payoff at least $L_\infty(p^{k+\beta}(l, r))
-% = ((r - k - \beta)(k - l + \beta) + \beta(1-\beta))/2$. This coincides with the
-% value of $H_\infty(p^{k+\beta}(l, r))$. Thus the game $G_\infty(p)$ has a value
-% $V_\infty(p) = H_\infty(p)$ and strategies described above are optimal.
-
 It must be noted that Player 2's strategy is surprisingly robust in regard to
 changes in the payoff function. At the same time Player 1's strategy becomes
-more complex. While in [3] for $p \in \Theta(k)$ posterior probabilites form a
+more complex. While in [3] for $p \in \Theta(k)$ posterior probabilities form a
 symmetric random walk over domains $\Theta(s)$, this is no longer true for
 $\beta \in (0, 1)$. The strategy described above essentially differs from that
 in [3], e.g. it doesn't collapse to that of [3] when $\beta \rightarrow 1$.
-
-% Comparing these results to those in [3] 
-% It is important to note that Player 1's strategy described above is properly
-% defined only for $\beta \in (0, 1)$. In case of $\beta \in \{0, 1\}$ one should
-% use strategies described in [3].
-
-% Following [3], Player 1's strategy $\sigma$ in $n$--stage game can be
-% represented as a pair $(\sigma_1, \sigma(i))$ where $\sigma_1$ is a one stage
-% action and $\sigma(i)$ is a strategy in $(n-1)$--stage game dependent on the
-% actual first bid. Similarly Player 2's strategy $\tau$ can be represented as a
-% pair $(\tau_1, \tau(i))$. Denoting $q = (q_0, q_1, \ldots)$ a marginal
-% distribution of the first bid, and $p(i) = \{p(0 | i), p(1, i), \ldots\}$ -- a
-% posterior distribution of the liquidation price given a bid $i$, the following
-% recursive formula holds
-% \begin{equation*}
-%   K_n(p, \sigma, \tau) = K_1(p, \sigma_1, \tau_1) +
-%   \sum_{i \in I} q_i K_{n-1}(p(i), \sigma(i), \tau(i)).
-% \end{equation*}
-% Thus to define a strategy in $G_n(p)$ it is suffice to define a stage action
-% for any posterior probability $p$. It can be shown that for $p$ such that
-% $\mathbb{E} p = k - 1 + \beta + \xi, \; \xi \in [0, 1)$ Player 2 can guarantee
-% a payoff not more than $H^\infty(p) = \mathbb{D} p + \beta\overline{\beta}
-% -\xi(1-\xi)$. Function $H^\infty(p)$ is piecewise linear with breakpoints at
-% $p \in \Theta(k + \beta)$ where $\Theta(x) = \{p: \mathbb{E} p = x\}$ and
-% domains of linearity $\Lambda(k - \overline{\beta}, k + \beta)$ where
-% $\Lambda(x, y) = \{p: x \leq \mathbb{E}p \leq y \}$.
 
 % Insert your figure, if needed.
 % \begin{figure}[!h]
