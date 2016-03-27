@@ -6,7 +6,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\No}{No.}
+\newcommand{\No}{\textnumero}
 
 \Title[%
 % Insert here the acknowledgements of grants and/or any other information you
@@ -15,8 +15,8 @@ The reported study was funded by RFBR according to the research project \No
 16-01-00353a.%
 ] {%
   % Insert your title here
-  Multistage Bidding Model with Elements of Bargaining. Extension for a
-  Countable State Space%
+  Multistage bidding model with elements of bargaining: extension for a
+  countable state space%
 } {%
   % Insert the authors' names here
   A.I.~Pyanykh%
@@ -48,22 +48,20 @@ winning player. Each player aims to maximize the value of her final portfolio.
 
 A model where the price $s^0$ has only two possible values $\{0, m\}$ is
 considered in [1]. It is reduced to a zero-sum game $G_n(p)$ with incomplete
-information on one side as in Aumann, Maschler [2]. In this model uninformed
-Player 2 uses the history of Player 1's moves to update posterior probabilities
-over the liquidation price. Thus, Player 1 should find a strategy controlling
-posterior probabilities in such a way that allows her to use the private
-information without revealing too much of it to Player 2. The main results in
-[1] are explicit optimal strategies and the value of the infinitely long game
-$G_\infty(p)$. In [3] the model is extended so that the liquidation price can
-take any value $s \in S = \mathbb{Z}_+$ according to a probability distribution
-$p = (p_s, s \in S)$. It is shown that when $\mathbb{D}p$ is finite a game
-$G_\infty(p)$ is properly defined. For this game the value and optimal players
-strategies are found.
+information on one side as in [2]. In this model uninformed Player 2 uses the
+history of Player 1's moves to update posterior probabilities over the
+liquidation price. Thus, Player 1 should find a strategy controlling posterior
+probabilities in such a way that allows her to use the private information
+without revealing too much of it to Player 2. In [3] the model is extended so
+that the liquidation price can take any value $s \in S = \mathbb{Z}_+$ according
+to a probability distribution $p = (p_s, s \in S)$. It is shown that when
+$\mathbb{D}p$ is finite, a game $G_\infty(p)$ is properly defined. For this game
+the value and optimal players strategies are found.
 
 In both [1] and [3] the transaction price equals to the highest bid. Instead we
-could consider a transaction rule proposed in [4], and define a transaction
-price equal to a convex combination of proposed bids with a coefficient $\beta
-\in [0, 1]$. A model with such transaction rule and two possible values of the
+can consider a transaction rule proposed in [4], and define a transaction price
+equal to a convex combination of proposed bids with a coefficient $\beta \in [0,
+1]$. A model with such transaction rule and two possible values of the
 liquidation price is studied in [5]. Here those results are further extended for
 the case of a countable state space.
 
@@ -91,24 +89,25 @@ The payoff in this zero-sum game $G_n(p)$ is defined as
   K_n(p, \sigma, \tau) = \mathbb{E}_{(p, \sigma, \tau)} \sum_{t=1}^n a^s(i_t,j_t).
 \end{equation*}
 
-Let's denote $\Theta(x) = \{p: \mathbb{E} p = x\}$ and $\Lambda(x, y) = \{p: x <
-\mathbb{E}p \leq y \}$. Similar to [3], it can be shown that for $p \in
-\Lambda(k-1+\beta, k+\beta)$ a pure strategy $\tau^k$ defined as
-\begin{gather}
+Let's denote distribution sets $\Theta(x) = \{p' \in \Delta(S): \mathbb{E}p' =
+x\}$ and $\Lambda(x, y) = \{p' \in \Delta(S): x < \mathbb{E}p' \leq y \}$.
+Similar to [3], it can be shown that for $p \in \Lambda(k-1+\beta, k+\beta)$ a
+pure strategy $\tau^k$ defined as
+\begin{gather*}
   \tau_1^k = k, \quad \tau_t^k(i_{t-1}, j_{t-1}) =
   \begin{cases}
     j_{t-1}, &\; i_{t-1} < j_{t-1},\\
     j_{t-1}, &\; i_{t-1} = j_{t-1},\\
     j_{t-1}, &\; i_{t-1} > j_{t-1},
   \end{cases}
-\end{gather}
+\end{gather*}
 guarantees to Player 2 a payoff not greater than $H_\infty(p)$ in game $G_n(p)$.
 Function $H_\infty(p)$ is piecewise linear with breakpoints at $\Theta(k+\beta)$
 and domains of linearity $\Lambda(k-1+\beta, k+\beta)$. For distribution $p$
 such that $\mathbb{E} p = k - 1 + \beta + \xi, \; \xi \in [0, 1)$, it equals to
-\begin{equation}
+\begin{equation*}
   H_\infty(p) = \mathbb{D} p + \beta(1-\beta) -\xi(1-\xi).
-\end{equation}
+\end{equation*}
 Since $\mathbb{D}p$ is assumed finite, the value $H_\infty(p)$ is finite as
 well. Hence an infinitely long game $G_\infty(p)$ can be considered.
 
@@ -156,10 +155,12 @@ described above are optimal.
 
 It must be noted that Player 2's strategy is surprisingly robust in regard to
 changes in the payoff function. At the same time Player 1's strategy becomes
-more complex. While in [3] for $p \in \Theta(k)$ posterior probabilities form a
-symmetric random walk over domains $\Theta(s)$, this is no longer true for
-$\beta \in (0, 1)$. The strategy described above essentially differs from that
-in [3], e.g. it doesn't collapse to that of [3] when $\beta \rightarrow 1$.
+more complex. For initial $p \in \Theta(k)$ posterior prob\-a\-bil\-i\-ties in
+[3] form a symmetric random walk, i.e. posterior $p'$ will be either in
+$\Theta(k-1)$ or $\Theta(k+1)$ with equal to $1/2$ probabilities. This is no
+longer true when $\beta \in (0, 1)$. The strategy described above essentially
+differs from that in [3], e.g. it doesn't collapse to that of [3] when $\beta
+\rightarrow 1$.
 
 % Insert your figure, if needed.
 % \begin{figure}[!h]
@@ -175,22 +176,22 @@ in [3], e.g. it doesn't collapse to that of [3] when $\beta \rightarrow 1$.
 
 \item % Reference No. 1
   Domansky~V. Repeated games with asymmetric information and random price
-  fluctuations at finance markets // International Journal of Game Theory. 2007.
+  fluctuations at finance markets // International Jour\-nal of Game Theory. 2007.
   V.~36, \No~2. P.~241--257.
 
 \item Aumann R.J., Maschler M.B. Repeated Games with Incomplete Information.
   Cambridge, Massachusetts: The MIT Press, 1995.
 
 \item % Reference No. 2
-  Domansky~V.C., Kreps~V.L. Game Theoretic Bidding Model: Strategic Aspects of
-  Price Formation at Stock Markets // The Journal of the New Economic
+  Domansky~V.C., Kreps~V.L. Game theoretic bidding model: strate\-gic aspects of
+  price formation at stock markets // The Journal of the New Economic
   Association. 2011. V.~11. P.~39--62.
 
-\item Chatterjee~K., Samuelson W. Bargaining under incomplete information //
+\item Chatterjee~K., Samuelson W. Bargaining under incomplete informa\-tion //
   Operations Research. 1983. V.~31, \No 5. P.~835--851.
 
-\item P'yanykh~A.I. A Multistage Exchange Trading Model with Asymmetric
-  Information and Elements of Bargaining // Moscow University Computational
+\item P'yanykh~A.I. A Multistage exchange trading model with asym\-met\-ric
+  information and elements of bargaining // Moscow Uni\-ver\-si\-ty Computational
   Mathematics and Cybernetics. 2016. V.~40, \No~1. P.~35--40.
   % ...
 
